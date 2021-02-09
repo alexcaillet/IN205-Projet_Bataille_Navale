@@ -21,5 +21,29 @@ public abstract class AbstractShip{
      */
     private Orientation orientation;
 
+
+    public AbstractShip(String name, char label, int size, Orientation orientation){
+        this.name = name;
+        this.label = label;
+        this.size = size;
+        this.orientation = orientation;
+    }
+
+    public void setOrientation(Orientation orientation){
+        this.orientation = orientation;
+    }
+
+    public int getSize(){
+        return this.size;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public char getLabel(){
+        return this.label;
+    }
+
     
 }
