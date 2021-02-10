@@ -33,6 +33,10 @@ public abstract class AbstractShip{
         this.orientation = orientation;
     }
 
+    public Orientation getOrientation(){
+        return this.orientation;
+    }
+
     public int getSize(){
         return this.size;
     }
