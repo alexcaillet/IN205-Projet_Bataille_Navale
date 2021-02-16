@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="FR"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/surefire/surefirebooter16432710736535568712.jar /Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/surefire 2021-02-10T23-25-49_781-jvmRun1 surefire10528884715360646301tmp surefire_013862841585648032389tmp"/>
+    <property name="sun.java.command" value="/Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/surefire/surefirebooter18100694309236012341.jar /Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/surefire 2021-02-16T11-54-17_589-jvmRun1 surefire6208679198155123019tmp surefire_010759057017087146135tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/test-classes:/Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/classes:/Users/alexandre/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/alexandre/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -27,7 +27,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/surefire/surefirebooter16432710736535568712.jar"/>
+    <property name="surefire.real.class.path" value="/Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/surefire/surefirebooter18100694309236012341.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="15.0.1+9"/>
     <property name="user.name" value="alexandre"/>

@@ -1,4 +1,4 @@
-package ensta;
+package ensta.ships;
 
 public class Battleship extends AbstractShip{
     public Battleship(Orientation orientation){

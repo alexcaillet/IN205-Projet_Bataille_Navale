@@ -1,4 +1,4 @@
-package ensta;
+package ensta.ships;
 
 public abstract class AbstractShip{
     /**

@@ -1,4 +1,5 @@
 package ensta;
+import ensta.ships.*;
 
 public class Board implements IBoard {
 
@@ -135,13 +136,13 @@ public class Board implements IBoard {
         return this.my_grid.length;
     }
 
-    public void putShip(AbstractShip ship, int x, int y){
+    public void putShip(AbstractShip ship, int x, int y) throws Exception {
         try{
             checkLengthShip(x, y, ship);
         }
         catch (Exception e){
             System.out.println(e);
-            return; //temporaire
+            throw new Exception("Replacez le bateau correctement");
         }
 
         switch (ship.getOrientation()) {
@@ -157,12 +158,12 @@ public class Board implements IBoard {
                 break;
             case EAST:
                 for(int i=0; i<ship.getSize(); i++){
-                    this.my_grid[x-1][y-1+i] = ship.getLabel();
+                    this.my_grid[x-1][y+i-1] = ship.getLabel();
                 }
                 break;
             case WEST:
                 for(int i=0; i<ship.getSize(); i++){
-                    this.my_grid[x-1][y-1-i] = ship.getLabel();
+                    this.my_grid[x-1][y-i-1] = ship.getLabel();
                 }
                 break;
             default:
@@ -174,8 +175,8 @@ public class Board implements IBoard {
     /**
      * Check if the ship is not too long to fit in the grid and if there are not other ships in the way
      * 
-     * @param x    position of the ship
-     * @param y    position of the ship
+     * @param x    position of the ship starting from 1
+     * @param y    position of the ship starting from 1
      * @param ship
      */
     private void checkLengthShip(int x, int y, AbstractShip ship) throws Exception {

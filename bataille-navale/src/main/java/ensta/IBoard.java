@@ -1,4 +1,5 @@
 package ensta;
+import ensta.ships.*;
 public interface IBoard { 
 
     /**
@@ -13,7 +14,7 @@ public interface IBoard {
     * @param x
     * @param y
     */
-    void putShip(AbstractShip ship, int x, int y);
+    void putShip(AbstractShip ship, int x, int y) throws Exception;
 
     /**
      * Get if a ship is placed at the given position
