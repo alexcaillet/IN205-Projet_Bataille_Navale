@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: ensta.TestBoard
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in ensta.TestBoard
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.031 s <<< FAILURE! - in ensta.TestBoard
+test(ensta.TestBoard)  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ensta.ShipState.toString()" because "this.my_grid[i][j]" is null
+	at ensta.TestBoard.test(TestBoard.java:15)
+

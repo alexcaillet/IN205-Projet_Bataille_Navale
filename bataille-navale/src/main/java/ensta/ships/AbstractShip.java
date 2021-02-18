@@ -17,6 +17,11 @@ public abstract class AbstractShip{
     private final int size;
 
     /**
+     * Compte le nombre de frappe sur la navire
+     */
+    private int strikeCount;
+
+    /**
      * Orientation
      */
     private Orientation orientation;
@@ -27,6 +32,7 @@ public abstract class AbstractShip{
         this.label = label;
         this.size = size;
         this.orientation = orientation;
+        this.strikeCount = 0;
     }
 
     public void setOrientation(Orientation orientation){
@@ -47,6 +53,28 @@ public abstract class AbstractShip{
 
     public char getLabel(){
         return this.label;
+    }
+
+    /**
+     * Ajoute une frappe au navire
+     */
+    public void addStrike(){
+        if(strikeCount<size){
+            strikeCount++;
+        }
+    }
+
+    /**
+     * Indique si le bateau est coulé
+     * @return
+     */
+    public boolean isSunk(){
+        if(strikeCount==size){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     

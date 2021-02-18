@@ -11,12 +11,12 @@ public class Board implements IBoard {
     /**
      * Grille où le joueur place ses bateaux
      */
-    private char[][] my_grid;
+    private ShipState[][] my_grid;
 
     /**
      * Grille où le joueur place ses frappes sur l'adversaire
      */
-    private boolean[][] target_grid;
+    private Boolean[][] target_grid;
 
     /**
      *
@@ -25,8 +25,13 @@ public class Board implements IBoard {
      */
     public Board(String name, int grid_size) {
         this.name = name;
-        this.my_grid = new char[grid_size][grid_size];
-        this.target_grid = new boolean[grid_size][grid_size];
+        this.my_grid = new ShipState[grid_size][grid_size];
+        for(int i=0; i<grid_size; i++){
+            for(int j=0; j<grid_size; j++){
+                this.my_grid[i][j] =    new ShipState();
+            }
+        }
+        this.target_grid = new Boolean[grid_size][grid_size];
     }
 
     /**
@@ -36,8 +41,8 @@ public class Board implements IBoard {
      */
     public Board(String name) {
         this.name = name;
-        this.my_grid = new char[10][10];
-        this.target_grid = new boolean[10][10];
+        this.my_grid = new ShipState[10][10];
+        this.target_grid = new Boolean[10][10];
     }
 
     /**
@@ -96,26 +101,7 @@ public class Board implements IBoard {
      * @param j column index of the grid
      */
     private void print_my_grid_status(int i, int j) {
-        switch (my_grid[i][j]){
-            case 'D':
-                System.out.print("D ");
-                break;
-            case 'S':
-                System.out.print("S ");
-                break;
-            case 'C':
-                System.out.print("C ");
-                break;
-            case 'B':
-                System.out.print("B ");
-                break;
-            case 'X':
-                System.out.print("X ");
-                break;
-            default:
-                System.out.print(". ");
-                break;
-        }
+        System.out.print(my_grid[i][j].toString());
     }
 
     /**
@@ -125,10 +111,14 @@ public class Board implements IBoard {
      * @param j column index of the grid
      */
     private void print_target_grid_status(int i, int j) {
-        if (target_grid[i][j]) {
-            System.out.print("x ");
-        } else {
+        if(target_grid[i][j]==null){
             System.out.print(". ");
+        }
+        else if (target_grid[i][j]) {
+            System.out.print(ColorUtil.colorize("X ", ColorUtil.Color.RED));
+        }
+        else {
+            System.out.print("X ");
         }
     }
 
@@ -148,22 +138,22 @@ public class Board implements IBoard {
         switch (ship.getOrientation()) {
             case NORTH:
                 for(int i=0; i<ship.getSize(); i++){
-                    this.my_grid[x-1-i][y-1] = ship.getLabel();
+                    this.my_grid[x-1-i][y-1].setShip(ship);
                 }
                 break;
             case SOUTH:
                 for(int i=0; i<ship.getSize(); i++){
-                    this.my_grid[x-1+i][y-1] = ship.getLabel();
+                    this.my_grid[x-1+i][y-1].setShip(ship);
                 }
                 break;
             case EAST:
                 for(int i=0; i<ship.getSize(); i++){
-                    this.my_grid[x-1][y+i-1] = ship.getLabel();
+                    this.my_grid[x-1][y+i-1].setShip(ship);
                 }
                 break;
             case WEST:
                 for(int i=0; i<ship.getSize(); i++){
-                    this.my_grid[x-1][y-i-1] = ship.getLabel();
+                    this.my_grid[x-1][y-i-1].setShip(ship);
                 }
                 break;
             default:
@@ -241,11 +231,7 @@ public class Board implements IBoard {
     }
 
     public boolean hasShip(int x, int y) {
-        if (this.my_grid[x][y] != '.') {
-            return true;
-        } else {
-            return false;
-        }
+        return my_grid[x][y].hasShip;
     }
 
     public void setHit(boolean hit, int x, int y) {
@@ -253,10 +239,6 @@ public class Board implements IBoard {
     }
 
     public Boolean getHit(int x, int y) {
-        if (my_grid[x][y] == '.') {
-            return false;
-        } else {
-            return true;
-        }
+        return my_grid[x-1][y-1].isStruck();
     }
 }

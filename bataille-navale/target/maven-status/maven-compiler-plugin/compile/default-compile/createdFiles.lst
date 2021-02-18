@@ -13,3 +13,6 @@ ensta/ships/Submarine.class
 ensta/InputHelper$CoordInput.class
 ensta/InputHelper$ShipInput.class
 ensta/Board$1.class
+ensta/ColorUtil.class
+ensta/ShipState.class
+ensta/ColorUtil$Color.class

@@ -34,10 +34,15 @@ public class TestBoard{
         Carrier c1 = new Carrier(Orientation.NORTH);
         Submarine s1 = new Submarine(Orientation.EAST);
         Battleship b1 = new Battleship(Orientation.WEST);
-        Plateau.putShip(d1, 1, 1);
-        Plateau.putShip(c1, 10, 10);
-        Plateau.putShip(s1, 5, 5);
-        Plateau.putShip(b1, 5, 5);
+        try{
+            Plateau.putShip(d1, 1, 1);
+            Plateau.putShip(c1, 10, 10);
+            Plateau.putShip(s1, 5, 5);
+            Plateau.putShip(b1, 5, 5);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         Plateau.print();
 
         
