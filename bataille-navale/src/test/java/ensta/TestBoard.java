@@ -14,13 +14,6 @@ public class TestBoard{
         Board Plateau = new Board("Alexandre");
         Plateau.print();
 
-        Board Plateau2 = new Board("Alexandre", 5);
-        Plateau2.print();
-
-        Board Plateau3 = new Board("Alexandre", 20);
-        Board Plateau4 = new Board("Adversaire", 20);
-        Plateau3.print();
-
         List<AbstractShip> ships = new ArrayList<AbstractShip>();
         ships.add(new Destroyer());
         ships.add(new Submarine());
@@ -28,23 +21,27 @@ public class TestBoard{
         ships.add(new Battleship());
         ships.add(new Carrier());
 
-        Player Alexandre = new Player(Plateau3, Plateau4, ships);
+        int i = 1;
+        for(AbstractShip ship : ships){
+            try{
+                Plateau.putShip(ship, i, 1);
+            }
+            catch(Exception e){
 
-        Destroyer d1 = new Destroyer(Orientation.SOUTH);
-        Carrier c1 = new Carrier(Orientation.NORTH);
-        Submarine s1 = new Submarine(Orientation.EAST);
-        Battleship b1 = new Battleship(Orientation.WEST);
-        try{
-            Plateau.putShip(d1, 1, 1);
-            Plateau.putShip(c1, 10, 10);
-            Plateau.putShip(s1, 5, 5);
-            Plateau.putShip(b1, 5, 5);
+            }
+            i++;
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+
         Plateau.print();
+        for(int j = 1; j<11; j++){
+            try{
+                Hit frappe = Plateau.sendHit(5, j);
+                System.out.println(frappe.toString());
+            }
+            catch(Exception e){}
+        }
 
+        Plateau.print();
         
     }
 }

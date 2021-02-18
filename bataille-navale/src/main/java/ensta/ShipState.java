@@ -23,7 +23,10 @@ public class ShipState {
      * Ajoute une frappe au bateau
      */
     public void addStrike(){
-        struck = true;
+        if(!struck){
+            struck = true;
+            this.ship.addStrike();
+        }
     };
 
     /**

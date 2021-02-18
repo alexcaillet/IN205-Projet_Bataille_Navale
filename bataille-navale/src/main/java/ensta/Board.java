@@ -42,6 +42,11 @@ public class Board implements IBoard {
     public Board(String name) {
         this.name = name;
         this.my_grid = new ShipState[10][10];
+        for(int i=0; i<10; i++){
+            for(int j=0; j<10; j++){
+                this.my_grid[i][j] = new ShipState();
+            }
+        }
         this.target_grid = new Boolean[10][10];
     }
 
@@ -236,6 +241,32 @@ public class Board implements IBoard {
 
     public void setHit(boolean hit, int x, int y) {
         this.target_grid[x][y] = hit;
+    }
+
+    public Hit sendHit(int x, int y) throws Exception{
+        if(!my_grid[x-1][y-1].hasShip){
+            return Hit.MISS;
+        }
+        else{
+            my_grid[x-1][y-1].addStrike();
+            if(my_grid[x-1][y-1].isSunk()){
+                switch (my_grid[x-1][y-1].getShip().getName()){
+                    case "Destroyer":
+                        return Hit.DESTROYER;
+                    case "Submarine":
+                        return Hit.SUBMARINE;
+                    case "Battleship":
+                        return Hit.BATTLESHIP;
+                    case "Aircraft-Carrier":
+                        return Hit.CARRIER;
+                    default:
+                        throw new Exception("Nom de navire inconnu");
+                }
+            }
+            else{
+                return Hit.STIKE;
+            }
+        }
     }
 
     public Boolean getHit(int x, int y) {
