@@ -3,10 +3,6 @@ import ensta.ships.*;
 import java.util.List;
 import java.util.ArrayList;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )

@@ -27,7 +27,6 @@ public class TestBoard{
                 Plateau.putShip(ship, i, 1);
             }
             catch(Exception e){
-
             }
             i++;
         }

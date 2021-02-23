@@ -1,3 +1,4 @@
+/Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/src/main/java/ensta/AIPlayer.java
 /Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/src/main/java/ensta/ColorUtil.java
 /Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/src/main/java/ensta/ships/Battleship.java
 /Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/src/main/java/ensta/ships/Submarine.java
@@ -6,6 +7,7 @@
 /Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/src/main/java/ensta/Hit.java
 /Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/src/main/java/ensta/ships/Orientation.java
 /Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/src/main/java/ensta/App.java
+/Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/src/main/java/ensta/BattleShipsAI.java
 /Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/src/main/java/ensta/ships/Carrier.java
 /Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/src/main/java/ensta/ShipState.java
 /Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/src/main/java/ensta/ships/Destroyer.java

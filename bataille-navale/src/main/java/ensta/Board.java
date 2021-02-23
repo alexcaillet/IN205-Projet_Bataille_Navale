@@ -28,7 +28,7 @@ public class Board implements IBoard {
         this.my_grid = new ShipState[grid_size][grid_size];
         for(int i=0; i<grid_size; i++){
             for(int j=0; j<grid_size; j++){
-                this.my_grid[i][j] =    new ShipState();
+                this.my_grid[i][j] = new ShipState();
             }
         }
         this.target_grid = new Boolean[grid_size][grid_size];
@@ -143,22 +143,22 @@ public class Board implements IBoard {
         switch (ship.getOrientation()) {
             case NORTH:
                 for(int i=0; i<ship.getSize(); i++){
-                    this.my_grid[x-1-i][y-1].setShip(ship);
+                    this.my_grid[x-i][y].setShip(ship);
                 }
                 break;
             case SOUTH:
                 for(int i=0; i<ship.getSize(); i++){
-                    this.my_grid[x-1+i][y-1].setShip(ship);
+                    this.my_grid[x+i][y].setShip(ship);
                 }
                 break;
             case EAST:
                 for(int i=0; i<ship.getSize(); i++){
-                    this.my_grid[x-1][y+i-1].setShip(ship);
+                    this.my_grid[x][y+i].setShip(ship);
                 }
                 break;
             case WEST:
                 for(int i=0; i<ship.getSize(); i++){
-                    this.my_grid[x-1][y-i-1].setShip(ship);
+                    this.my_grid[x][y-i].setShip(ship);
                 }
                 break;
             default:
@@ -170,62 +170,61 @@ public class Board implements IBoard {
     /**
      * Check if the ship is not too long to fit in the grid and if there are not other ships in the way
      * 
-     * @param x    position of the ship starting from 1
-     * @param y    position of the ship starting from 1
+     * @param x    position of the ship
+     * @param y    position of the ship
      * @param ship
      */
     private void checkLengthShip(int x, int y, AbstractShip ship) throws Exception {
-        String listOfLabel = "DSBCX";
         boolean fitInTheGrid = true;
         switch (ship.getOrientation()) {
             case NORTH:
-                if ((x - 1) - ship.getSize() < 0) {
+                if (x + 1 - ship.getSize() < 0) {
                     fitInTheGrid = false;
-                    throw new Exception("Le navire ne rentre pas, repositionner le navire");
+                    throw new Exception("Le navire ne rentre pas, repositionner le navire, nord");
                 }
                 if (fitInTheGrid){
                     for(int i=0; i<ship.getSize(); i++){
-                        if (listOfLabel.contains(String.valueOf(my_grid[(x - 1) - i][y-1]))){
-                            throw new Exception("Il y a déjà un navire à cette position");
+                        if (my_grid[x - i][y].hasShip){
+                            throw new Exception("Il y a déjà un navire à cette position, nord");
                         }
                     }
                 }
                 break;
             case SOUTH:
-                if ((x - 1) + ship.getSize() > this.getSize() - 1) {
+                if (x + ship.getSize() >= this.getSize()){
                     fitInTheGrid = false;
-                    throw new Exception("Le navire ne rentre pas, repositionner le navire");
+                    throw new Exception("Le navire ne rentre pas, repositionner le navire, sud");
                 }
                 if (fitInTheGrid){
                     for(int i=0; i<ship.getSize(); i++){
-                        if (listOfLabel.contains(String.valueOf(my_grid[(x - 1) + i][y-1]))){
-                            throw new Exception("Il y a déjà un navire à cette position");
+                        if (my_grid[x + i][y].hasShip){
+                            throw new Exception("Il y a déjà un navire à cette position, sud");
                         }
                     }
                 }                
                 break;
             case EAST:
-                if ((y - 1) + ship.getSize() > this.getSize()-1) {
+                if (y + ship.getSize() >= this.getSize()) {
                     fitInTheGrid = false;
-                    throw new Exception("Le navire ne rentre pas, repositionner le navire");
+                    throw new Exception("Le navire ne rentre pas, repositionner le navire, est");
                 }
                 if (fitInTheGrid){
                     for(int i=0; i<ship.getSize(); i++){
-                        if (listOfLabel.contains(String.valueOf(my_grid[(x - 1)][y-1+i]))){
-                            throw new Exception("Il y a déjà un navire à cette position");
+                        if (my_grid[x][y+i].hasShip){
+                            throw new Exception("Il y a déjà un navire à cette position, sud");
                         }
                     }
                 }
                 break;
             case WEST:
-                if ((y - 1) - ship.getSize() < 0) {
+                if (x + 1 - ship.getSize() < 0) {
                     fitInTheGrid = false;
-                    throw new Exception("Le navire ne rentre pas, repositionner le navire");
+                    throw new Exception("Le navire ne rentre pas, repositionner le navire, ouest");
                 }
                 if (fitInTheGrid){
                     for(int i=0; i<ship.getSize(); i++){
-                        if (listOfLabel.contains(String.valueOf(my_grid[(x - 1)][y-1-i]))){
-                            throw new Exception("Il y a déjà un navire à cette position");
+                        if (my_grid[x][y-i].hasShip){
+                            throw new Exception("Il y a déjà un navire à cette position, ouest");
                         }
                     }
                 }
@@ -243,14 +242,14 @@ public class Board implements IBoard {
         this.target_grid[x][y] = hit;
     }
 
-    public Hit sendHit(int x, int y) throws Exception{
-        if(!my_grid[x-1][y-1].hasShip){
+    public Hit sendHit(int x, int y) {
+        if(!my_grid[x][y].hasShip){
             return Hit.MISS;
         }
         else{
-            my_grid[x-1][y-1].addStrike();
-            if(my_grid[x-1][y-1].isSunk()){
-                switch (my_grid[x-1][y-1].getShip().getName()){
+            my_grid[x][y].addStrike();
+            if(my_grid[x][y].isSunk()){
+                switch (my_grid[x][y].getShip().getName()){
                     case "Destroyer":
                         return Hit.DESTROYER;
                     case "Submarine":
@@ -260,7 +259,7 @@ public class Board implements IBoard {
                     case "Aircraft-Carrier":
                         return Hit.CARRIER;
                     default:
-                        throw new Exception("Nom de navire inconnu");
+                        return Hit.DESTROYER;
                 }
             }
             else{
@@ -270,6 +269,6 @@ public class Board implements IBoard {
     }
 
     public Boolean getHit(int x, int y) {
-        return my_grid[x-1][y-1].isStruck();
+        return target_grid[x][y];
     }
 }

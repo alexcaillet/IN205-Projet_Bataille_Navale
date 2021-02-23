@@ -62,7 +62,7 @@ public class Player {
                         break;
                 }
                 try {
-                    board.putShip(s, res.x + 1, res.y + 1);
+                    board.putShip(s, res.x, res.y);
                     restart = false;
                 } catch (Exception e) {
                     msg = String.format("placer %d : %s(%d)", i + 1, s.getName(), s.getSize());
