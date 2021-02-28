@@ -40,7 +40,7 @@ public class Game {
             b2 = new Board(name2);
 
             // TODO init this.player1 & this.player2
-            List<AbstractShip> Player1Ships = new ArrayList<AbstractShip>();
+            /*List<AbstractShip> Player1Ships = new ArrayList<AbstractShip>();
             Player1Ships.add(new Destroyer());
             Player1Ships.add(new Submarine());
             Player1Ships.add(new Submarine());
@@ -52,9 +52,10 @@ public class Game {
             Player2Ships.add(new Submarine());
             Player2Ships.add(new Submarine());
             Player2Ships.add(new Battleship());
-            Player2Ships.add(new Carrier());
+            Player2Ships.add(new Carrier());*/
 
-
+            List<AbstractShip> Player1Ships = createDefaultShips();
+            List<AbstractShip> Player2Ships = createDefaultShips();
 
             this.player1 = new Player(b1, b2, Player1Ships);
             this.player2 = new AIPlayer(b2, b1, Player2Ships);

@@ -1,6 +1,7 @@
 package ensta;
 import ensta.ships.*;
 import org.junit.Test;
+import static org.junit.Assert.assertSame;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -42,5 +43,20 @@ public class TestBoard{
 
         Plateau.print();
         
+    }
+
+    @Test
+    public void testSendHit(){
+        Board plateau = new Board("test");
+        Carrier ship = new Carrier();
+        try{
+            plateau.putShip(ship, 4, 4);
+        }
+        catch(Exception e){
+        }
+        Hit hit1 = plateau.sendHit(4, 7);
+        Hit hit2 = plateau.sendHit(5, 7);
+        assertSame(hit1, Hit.STIKE);
+        assertSame(hit2, Hit.MISS);
     }
 }
