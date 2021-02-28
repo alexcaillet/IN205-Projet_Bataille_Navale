@@ -6,7 +6,7 @@ public class Board implements IBoard {
     /**
      * nom du joueur
      */
-    private final String name;
+    public final String name;
 
     /**
      * Grille où le joueur place ses bateaux
@@ -54,6 +54,7 @@ public class Board implements IBoard {
      * Print the complete board
      */
     public void print() {
+        System.out.println(this.name);
         System.out.println("Navires :" + " ".repeat(2 * my_grid.length - 6 + 5) + "Frappes :");
 
         System.out.print("   ");
@@ -211,13 +212,13 @@ public class Board implements IBoard {
                 if (fitInTheGrid){
                     for(int i=0; i<ship.getSize(); i++){
                         if (my_grid[x][y+i].hasShip){
-                            throw new Exception("Il y a déjà un navire à cette position, sud");
+                            throw new Exception("Il y a déjà un navire à cette position, est");
                         }
                     }
                 }
                 break;
             case WEST:
-                if (x + 1 - ship.getSize() < 0) {
+                if (y + 1 - ship.getSize() < 0) {
                     fitInTheGrid = false;
                     throw new Exception("Le navire ne rentre pas, repositionner le navire, ouest");
                 }

@@ -17,5 +17,14 @@ public class AIPlayer extends Player {
         ai = new BattleShipsAI(ownBoard, opponentBoard);
     }
 
+    @Override
+    public void putShips(){
+        ai.putShips(ships);
+    }
+    
+    @Override
+    public Hit sendHit(int[] coords){
+        return ai.sendHit(coords);
+    }
     // TODO AIPlayer must not inherit "keyboard behavior" from player. Call ai instead.
 }

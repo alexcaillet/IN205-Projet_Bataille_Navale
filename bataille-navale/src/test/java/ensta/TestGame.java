@@ -2,8 +2,6 @@ package ensta;
 import ensta.ships.*;
 import org.junit.Test;
 
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class TestGame{
@@ -35,11 +33,11 @@ public class TestGame{
             }
             Plateau.print();
 
-            try {
+            /*try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }
+            }*/
         
         }
         System.out.println("done");

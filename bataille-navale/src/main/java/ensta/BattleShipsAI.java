@@ -67,6 +67,7 @@ public class BattleShipsAI implements Serializable {
                 x = rnd.nextInt(board.getSize());
                 y = rnd.nextInt(board.getSize());
                 o = orientations[rnd.nextInt(4)];
+                s.setOrientation(o);
             } while(!canPutShip(s, y, x));
             try{
                 board.putShip(s, x, y);
@@ -74,6 +75,7 @@ public class BattleShipsAI implements Serializable {
             catch(Exception e){
             }
         }
+        board.print();
     }
 
     /**
@@ -165,7 +167,7 @@ public class BattleShipsAI implements Serializable {
         int iy = y;
 
         for (int i = 0; i < ship.getSize(); ++i) {
-            if (board.hasShip(ix, iy)) {
+            if (board.hasShip(iy, ix)) {
                 return false;
             }
             ix += dx;

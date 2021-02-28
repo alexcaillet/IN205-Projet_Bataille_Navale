@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="ensta.AppTest" time="0" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="ensta.AppTest" time="0.001" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="FR"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/surefire/surefirebooter10265324142033971581.jar /Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/surefire 2021-02-23T19-33-52_970-jvmRun1 surefire13599753937639246964tmp surefire_010500172867594517650tmp"/>
+    <property name="sun.java.command" value="/Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/surefire/surefirebooter3181471049265625327.jar /Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/surefire 2021-02-28T17-20-54_426-jvmRun1 surefire3428617052364376333tmp surefire_014127864121433739300tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/test-classes:/Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/classes:/Users/alexandre/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/alexandre/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -27,7 +27,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/surefire/surefirebooter10265324142033971581.jar"/>
+    <property name="surefire.real.class.path" value="/Users/alexandre/Documents/ENSTA/2A/IN205/IN205-Projet_Bataille_Navale/bataille-navale/target/surefire/surefirebooter3181471049265625327.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="15.0.1+9"/>
     <property name="user.name" value="alexandre"/>
